@@ -79,7 +79,8 @@ USE madang
 DROP PROCEDURE AveragePrice
 GO
 
-CREATE PROCEDURE AveragePrice(@AverageVal INT OUTPUT)AS
+CREATE PROCEDURE AveragePrice(@AverageVal INT OUTPUT)
+AS
 BEGIN
 	SET @AverageVal = (SELECT AVG(price) 
 						FROM Book
@@ -122,6 +123,19 @@ END;
 # 6장
 
 ## ER 다이어그램
+
+**강한 개체, 약한 개체**
+택배 비유 (제일 잘 먹힘)
+
+주문(Invoice)
+→ 송장번호 있음
+→ 혼자 식별 가능
+→ 강한 개체
+
+주문 안의 상품(LineItem)
+→ “이 상품이 어느 주문에 속한 거야?”
+→ 주문번호 없으면 모름
+→ 약한 개체
 
 *직사각형 - 강한 개체 타입*
 - 자기 혼자서도 존재할 수 있는 개체
@@ -249,7 +263,7 @@ SAVE --<SAVEPOINT>를 만듬
 **단, 열고 다시 닫으면 안됨**
 
 ### 데드락
-둘 이상의 트랜잭션이 서로 상대방이 가진 자원을 기다리며무한 대기 상태에 빠지는 현상.
+둘 이상의 트랜잭션이 서로 상대방이 가진 자원을 기다리며 무한 대기 상태에 빠지는 현상.
 
 *해결방법?* : 그냥 작업 중 하나를 강제로 중지시킴
 
