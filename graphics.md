@@ -20,7 +20,7 @@ gluLookAt(eyeX, eyeY, eyeZ, centerX, centerY, centerZ, upX, upY, upZ); // 카메
 glPushMatrix(); // 현재 변환 상태를 저장
 glPopMatrix(); // 저장해둔 상태 복구
 glLoadIdentity(); // 현재 선택된 행렬을 “처음 상태”로 초기화하는 명령
-gluPerspective(fovy, aspect, near, far);
+gluPerspective(fovy, aspect , near, far);
 ```
 
 
@@ -139,6 +139,10 @@ DDA 알고리즘: x 또는 y를 1씩 증가시키며, 다른 좌표를 기울기
 - 구로 쉐이딩: 꼭짓점에서 밝기를 계산하고, 그 사이를 보간해서 칠하는 방식
 - 퐁 쉐이딩: 꼭짓점의 법선 벡터를 보간하고, 각 픽셀마다 조명을 계산하는 방식
 
+
+플랫 쉐이딩: 면 단위로 같은 색을 칠함. 빠르지만 각져 보인다.
+구로 쉐이딩: 정점의 밝기를 보간함. 비교적 부드럽지만 하이라이트 표현이 약하다.
+퐁 쉐이딩: 법선을 보간하고 픽셀마다 조명 계산함. 가장 자연스럽지만 계산량이 많다.
 ---
 
 ## 전체 핵심
